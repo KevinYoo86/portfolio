@@ -99,10 +99,9 @@ p {
 .eyebrow {
   margin: 0 0 12px;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .site-header {
@@ -206,7 +205,12 @@ p {
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.hero-media img {
   object-fit: cover;
+  object-position: center 35%;
+  filter: saturate(0.85) contrast(1.08);
 }
 
 .hero-scrim {
@@ -283,9 +287,61 @@ p {
   padding: 96px 0;
 }
 
-.section--muted {
-  background: var(--bg-muted);
-  border-block: 1px solid var(--line);
+.section--product {
+  background: #2a2a2a;
+}
+
+.section--product .project-card {
+  background: #333333;
+}
+
+.section--about {
+  background: #1e5fbf;
+  border-block: none;
+  color: #f7f4ee;
+}
+
+.section--about .eyebrow {
+  color: #d6e8ff;
+}
+
+.section--about .about-copy {
+  color: #e8f0fb;
+}
+
+.section--contact {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.section--contact .eyebrow {
+  color: var(--accent);
+}
+
+.section--contact .contact-intro p {
+  color: #5a5a5a;
+}
+
+.section--contact .contact-form {
+  background: #f5f5f5;
+  border-color: #e4e4e4;
+  box-shadow: none;
+}
+
+.section--contact label {
+  color: #4a4a4a;
+}
+
+.section--contact input,
+.section--contact textarea {
+  background: #ffffff;
+  color: #1a1a1a;
+  border-color: #d8d8d8;
+}
+
+.section--contact input:focus,
+.section--contact textarea:focus {
+  border-color: var(--accent);
 }
 
 .section-heading {
@@ -319,25 +375,30 @@ p {
 }
 
 .card-visual {
-  height: 180px;
+  position: relative;
+  height: 210px;
+  overflow: hidden;
 }
 
-.card-visual--atlas {
-  background:
-    radial-gradient(circle at 20% 20%, #e8b089, transparent 42%),
-    linear-gradient(135deg, #3b2a22, #1c2428);
+.card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.12) saturate(1.15);
+  transform: scale(1.04);
+  transition: transform 0.35s ease;
 }
 
-.card-visual--folio {
-  background:
-    radial-gradient(circle at 80% 30%, #9bb7c9, transparent 40%),
-    linear-gradient(160deg, #24302a, #35251d);
+.card-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.55));
+  pointer-events: none;
 }
 
-.card-visual--signal {
-  background:
-    radial-gradient(circle at 50% 80%, #d9c27a, transparent 38%),
-    linear-gradient(180deg, #2a2430, #1e1c18);
+.project-card:hover .card-visual img {
+  transform: scale(1.1);
 }
 
 .card-body {
